@@ -1,0 +1,27 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <!-- 将要发布成Rest服务的资源类 -->
+  <context-param>
+  	<param-name>resteasy.resources</param-name>
+  	<param-value>com.guohao.test.resteasy.test.App</param-value>
+  </context-param>
+  
+  <!-- 服务启动监视器 初始化RestEasy的核心组件 -->
+  <listener>
+  	<listener-class>org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap</listener-class>
+  </listener>
+  
+  <!-- 分发请求控制器 -->
+  <servlet>
+  	<servlet-name>Resteasy</servlet-name>
+  	<servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Resteasy</servlet-name>
+  	<url-pattern>/*</url-pattern>
+  </servlet-mapping>
+</web-app>
